@@ -1,0 +1,386 @@
+Index: app/src/main/res/layout/chi_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/chi_fragment.xml	(date 1553967011000)
++++ app/src/main/res/layout/chi_fragment.xml	(date 1553967011000)
+@@ -1,13 +1,30 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:orientation="vertical"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:gravity="center">
+ 
+-    <TextView
+-        android:layout_width="wrap_content"
++    <android.support.design.widget.TabLayout
++        android:id="@+id/tablelayout"
++        android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:text="Chi"/>
++        android:background="@color/colorPrimary"
++        app:tabTextColor="#fff"></android.support.design.widget.TabLayout>
++
++    <LinearLayout
++        android:id="@+id/ll"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/tablelayout"
++        android:orientation="horizontal"></LinearLayout>
++
++    <android.support.v4.view.ViewPager
++        android:id="@+id/viewpaper"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_below="@+id/ll"></android.support.v4.view.ViewPager>
++
+ 
+ </LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/thu_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/thu_fragment.xml	(date 1553966016000)
++++ app/src/main/res/layout/thu_fragment.xml	(date 1553966016000)
+@@ -1,13 +1,31 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:orientation="vertical"
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:gravity="center">
++    app:layout_behavior="@string/appbar_scrolling_view_behavior"
++    tools:showIn="@layout/app_bar_main">
+ 
+-    <TextView
+-        android:layout_width="wrap_content"
++    <android.support.design.widget.TabLayout
++        android:id="@+id/tablelayout"
++        android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:text="Thu"/>
++        android:background="@color/colorPrimary"
++        app:tabTextColor="#fff"></android.support.design.widget.TabLayout>
++
++    <LinearLayout
++        android:id="@+id/ll"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/tablelayout"
++        android:orientation="horizontal"></LinearLayout>
++
++    <android.support.v4.view.ViewPager
++        android:id="@+id/viewpaper"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_below="@+id/ll"></android.support.v4.view.ViewPager>
++
+ 
+-</LinearLayout>
+\ No newline at end of file
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/loai_chi_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/loai_chi_fragment.xml	(date 1553966313000)
++++ app/src/main/res/layout/loai_chi_fragment.xml	(date 1553966313000)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:orientation="vertical"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center">
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Loại Chi"/>
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/loai_thu_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/loai_thu_fragment.xml	(date 1553966347000)
++++ app/src/main/res/layout/loai_thu_fragment.xml	(date 1553966347000)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:orientation="vertical"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center">
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Loại Thu"/>
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/khoan_chi_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/khoan_chi_fragment.xml	(date 1553966347000)
++++ app/src/main/res/layout/khoan_chi_fragment.xml	(date 1553966347000)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:orientation="vertical"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center">
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Khoản Chi"/>
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/khoan_thu_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/khoan_thu_fragment.xml	(date 1553966357000)
++++ app/src/main/res/layout/khoan_thu_fragment.xml	(date 1553966357000)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:orientation="vertical"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center">
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Khoản Chi"/>
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/tuna/assignment/Fragment/ChiPager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tuna/assignment/Fragment/ChiPager.java	(date 1553966808000)
++++ app/src/main/java/com/tuna/assignment/Fragment/ChiPager.java	(date 1553966808000)
+@@ -0,0 +1,43 @@
++package com.tuna.assignment.Fragment;
++
++import android.support.annotation.Nullable;
++import android.support.v4.app.Fragment;
++import android.support.v4.app.FragmentManager;
++import android.support.v4.app.FragmentPagerAdapter;
++
++public class ChiPager extends FragmentPagerAdapter {
++    public ChiPager(FragmentManager fm) {
++        super(fm);
++    }
++
++    @Override
++    public Fragment getItem(int position) {
++        switch (position) {
++            case 1:
++                return new Khoan_Chi_Fragment();
++            case 2:
++                return new Loai_Chi_Fragment();
++            default:
++                return new Khoan_Chi_Fragment();
++
++        }
++    }
++
++    @Override
++    public int getCount() {
++        return 2;
++    }
++
++    @Nullable
++    @Override
++    public CharSequence getPageTitle(int position) {
++        switch (position) {
++            case 1:
++                return "Khoản Chi";
++            case 2:
++                return "Loại Chi";
++            default:
++                return "Khoản Chi";
++        }
++    }
++}
+Index: app/src/main/java/com/tuna/assignment/Fragment/ThuPager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tuna/assignment/Fragment/ThuPager.java	(date 1553966016000)
++++ app/src/main/java/com/tuna/assignment/Fragment/ThuPager.java	(date 1553966016000)
+@@ -0,0 +1,4 @@
++package com.tuna.assignment.Fragment;
++
++public class ThuPager {
++}
+Index: app/src/main/java/com/tuna/assignment/Fragment/Loai_Chi_Fragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tuna/assignment/Fragment/Loai_Chi_Fragment.java	(date 1553966610000)
++++ app/src/main/java/com/tuna/assignment/Fragment/Loai_Chi_Fragment.java	(date 1553966610000)
+@@ -0,0 +1,19 @@
++package com.tuna.assignment.Fragment;
++
++import android.os.Bundle;
++import android.support.annotation.NonNull;
++import android.support.annotation.Nullable;
++import android.support.v4.app.Fragment;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import com.tuna.assignment.R;
++
++public class Loai_Chi_Fragment extends Fragment {
++    @Nullable
++    @Override
++    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
++        return inflater.inflate(R.layout.loai_chi_fragment,container,false);
++    }
++}
+Index: app/src/main/java/com/tuna/assignment/Fragment/Loai_Thu_Fragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tuna/assignment/Fragment/Loai_Thu_Fragment.java	(date 1553966641000)
++++ app/src/main/java/com/tuna/assignment/Fragment/Loai_Thu_Fragment.java	(date 1553966641000)
+@@ -0,0 +1,19 @@
++package com.tuna.assignment.Fragment;
++
++import android.os.Bundle;
++import android.support.annotation.NonNull;
++import android.support.annotation.Nullable;
++import android.support.v4.app.Fragment;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import com.tuna.assignment.R;
++
++public class Loai_Thu_Fragment extends Fragment {
++    @Nullable
++    @Override
++    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
++        return inflater.inflate(R.layout.loai_thu_fragment,container,false);
++    }
++}
+Index: app/src/main/java/com/tuna/assignment/Fragment/Khoan_Chi_Fragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tuna/assignment/Fragment/Khoan_Chi_Fragment.java	(date 1553966534000)
++++ app/src/main/java/com/tuna/assignment/Fragment/Khoan_Chi_Fragment.java	(date 1553966534000)
+@@ -0,0 +1,19 @@
++package com.tuna.assignment.Fragment;
++
++import android.os.Bundle;
++import android.support.annotation.NonNull;
++import android.support.annotation.Nullable;
++import android.support.v4.app.Fragment;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import com.tuna.assignment.R;
++
++public class Khoan_Chi_Fragment extends Fragment {
++    @Nullable
++    @Override
++    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
++        return inflater.inflate(R.layout.khoan_chi_fragment,container,false);
++    }
++}
+Index: app/src/main/java/com/tuna/assignment/Fragment/Khoan_Thu_Fragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tuna/assignment/Fragment/Khoan_Thu_Fragment.java	(date 1553966567000)
++++ app/src/main/java/com/tuna/assignment/Fragment/Khoan_Thu_Fragment.java	(date 1553966567000)
+@@ -0,0 +1,19 @@
++package com.tuna.assignment.Fragment;
++
++import android.os.Bundle;
++import android.support.annotation.NonNull;
++import android.support.annotation.Nullable;
++import android.support.v4.app.Fragment;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import com.tuna.assignment.R;
++
++public class Khoan_Thu_Fragment extends Fragment {
++    @Nullable
++    @Override
++    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
++        return inflater.inflate(R.layout.khoan_thu_fragment,container,false);
++    }
++}
+Index: app/src/main/java/com/tuna/assignment/Fragment/ChiFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tuna/assignment/Fragment/ChiFragment.java	(date 1553966967000)
++++ app/src/main/java/com/tuna/assignment/Fragment/ChiFragment.java	(date 1553966967000)
+@@ -3,7 +3,9 @@
+ import android.os.Bundle;
+ import android.support.annotation.NonNull;
+ import android.support.annotation.Nullable;
++import android.support.design.widget.TabLayout;
+ import android.support.v4.app.Fragment;
++import android.support.v4.view.ViewPager;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -11,11 +13,19 @@
+ import com.tuna.assignment.R;
+ 
+ public class ChiFragment extends Fragment {
++    private ViewPager viewPager;
++    private TabLayout tabLayout;
++    private ChiPager chiPagerAdapter;
+ 
+     @Nullable
+     @Override
+     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+         return inflater.inflate(R.layout.chi_fragment, container, false);
++        viewPager = findViewById(R.id.viewpaper);
++        tabLayout = findViewById(R.id.tablelayout);
++        chiPagerAdapter = new HomePager(getSupportFragmentManager());
++        viewPager.setAdapter(chiPagerAdapter);
++        tabLayout.setupWithViewPager(viewPager);
+     }
+ 
+     @Override
