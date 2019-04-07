@@ -1,42 +1,84 @@
 package com.tuna.assignment;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
-import com.tuna.assignment.Fragment.ChiFragment;
+import com.tuna.assignment.Fragment.Fragment_Chi;
+import com.tuna.assignment.Fragment.Fragment_Thu;
 import com.tuna.assignment.Fragment.ReportFragment;
-import com.tuna.assignment.Fragment.ThuFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private Toolbar toolBar;
+    private DrawerLayout drawerLayout;
+    private NavigationView nvMain;
+    private Fragment_Thu fragment_thu;
+    private Fragment_Chi fragment_chi;
+    private ReportFragment fragment_thongKe;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        fragment_thongKe = new ReportFragment();
+         fragment_thu = new Fragment_Thu();
+         fragment_chi = new Fragment_Chi();
+         toolBar = findViewById(R.id.toolBar);
+         setSupportActionBar(toolBar);
+//         toolBar.setTitleMarginStart(200);
+//         toolBar.setTitle("Thống Kê");
+//         toolBar.getTitle();
+//         toolBar.setLogo(R.drawable.thongke_icon);
+         drawerLayout = findViewById(R.id.drawer_layout);
+         nvMain = findViewById(R.id.nav_view);
+         toolBar.setNavigationIcon(R.drawable.navigation_icon);
+         toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 drawerLayout.openDrawer(Gravity.START);
+             }
+         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+         hienThiManHinhThu();
+         nvMain.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+             @Override
+             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                 switch (item.getItemId()){
+                     case R.id.nav_in:
+                         toolBar.setTitle("Quản lý khoản thu");
+                         hienThiManHinhThu();
+                         break;
+                     case R.id.nav_out:
+                         toolBar.setTitle("Quản lý khoản chi");
+                         hienThiManHinhChi();
+                         break;
+                     case R.id.nav_report:
+                         toolBar.setTitle("Thống Kê");
+                         hienThiManHinhThongKe();
+                         break;
+                     case R.id.nav_introduce:
+                         Toast.makeText(MainActivity.this, "Mời bạn quay lại sau", Toast.LENGTH_SHORT).show();
+                         break;
+                     case R.id.nav_exit:
+                         finish();
+                         break;
+                 }
+                 drawerLayout.closeDrawer(Gravity.START);
+                 return false;
+             }
+         });
     }
 
     @Override
@@ -71,43 +113,56 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void displaySelectedScreen(int itemId) {
-
-        //creating fragment object
-        Fragment fragment = null;
-
-        //initializing the fragment object which is selected
-        switch (itemId) {
-            case R.id.nav_in:
-                fragment = new ThuFragment();
-                break;
-            case R.id.nav_out:
-                fragment = new ChiFragment();
-                break;
-            case R.id.nav_report:
-                fragment = new ReportFragment();
-                break;
+    public void hienThiManHinhThongKe(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        if(fragment_thu.isAdded()){
+            ft.hide(fragment_thu);
         }
-
-        //replacing the fragment
-        if (fragment != null) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
+        if(fragment_chi.isAdded()){
+            ft.hide(fragment_chi);
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        if(fragment_thongKe.isAdded()){
+            ft.show(fragment_thongKe);
+        }else{
+            ft.add(R.id.framLayout, fragment_thongKe);
+        }
+        ft.commit();
     }
 
+    public void hienThiManHinhThu(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        if(fragment_chi.isAdded()){
+            ft.hide(fragment_chi);
+        }
+        if(fragment_thongKe.isAdded()){
+            ft.hide(fragment_thongKe);
+        }
+        if(fragment_thu.isAdded()){
+            ft.show(fragment_thu);
+        }else{
+            ft.add(R.id.framLayout, fragment_thu);
+        }
+        ft.commit();
+    }
 
-    @SuppressWarnings("StatementWithEmptyBody")
+    public void hienThiManHinhChi(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        if(fragment_thongKe.isAdded()){
+            ft.hide(fragment_thongKe);
+        }
+        if(fragment_thu.isAdded()){
+            ft.hide(fragment_thu);
+        }
+        if(fragment_chi.isAdded()){
+            ft.show(fragment_chi);
+        }else{
+            ft.add(R.id.framLayout, fragment_chi);
+        }
+        ft.commit();
+    }
+
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-
-        //calling the method displayselectedscreen and passing the id of selected menu
-        displaySelectedScreen(item.getItemId());
-        //make this method blank
-        return true;
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
     }
 }

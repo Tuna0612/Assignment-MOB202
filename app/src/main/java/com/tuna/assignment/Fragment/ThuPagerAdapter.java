@@ -5,18 +5,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class ThuPager extends FragmentPagerAdapter {
-    public ThuPager(FragmentManager fm) {
+public class ThuPagerAdapter extends FragmentPagerAdapter {
+    public ThuPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
+        switch (position){
+            case 0:
+                return new Fragment_Thu_KhoanThu();
             case 1:
-                return new Loai_Thu_Fragment();
+                return new Fragment_Thu_LoaiThu();
             default:
-                return new Khoan_Thu_Fragment();
+                return new Fragment_Thu_KhoanThu();
 
         }
     }
@@ -29,11 +31,14 @@ public class ThuPager extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
+        switch (position){
+            case 0:
+                return "Khoản Thu";
             case 1:
                 return "Loại Thu";
             default:
                 return "Khoản Thu";
+
         }
     }
 }

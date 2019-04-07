@@ -1,5 +1,7 @@
 package com.tuna.assignment.Fragment;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,10 +12,18 @@ import android.view.ViewGroup;
 
 import com.tuna.assignment.R;
 
-public class Khoan_Thu_Fragment extends Fragment {
+
+public class IntroduceFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.khoan_thu_fragment,container,false);
+        return inflater.inflate(R.layout.fragment_introduce,container,false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle("Giới thiệu");
     }
 }

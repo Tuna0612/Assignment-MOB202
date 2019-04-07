@@ -5,19 +5,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class ChiPager extends FragmentPagerAdapter {
-    public ChiPager(FragmentManager fm) {
+public class ChiPagerAdapter extends FragmentPagerAdapter {
+    public ChiPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
+        switch (position){
+            case 0:
+                return new Fragment_Chi_KhoanChi();
             case 1:
-                return new Loai_Chi_Fragment();
+                return new Fragment_Chi_LoaiChi();
             default:
-                return new Khoan_Chi_Fragment();
-
+                return new Fragment_Chi_KhoanChi();
         }
     }
 
@@ -29,7 +30,9 @@ public class ChiPager extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
+        switch (position){
+            case 0:
+                return "Khoản Chi";
             case 1:
                 return "Loại Chi";
             default:
