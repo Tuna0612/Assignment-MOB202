@@ -6,6 +6,21 @@
     android:padding="10dp">
 
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilMaLoaiChi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">x
+
+        <EditText
+            android:id="@+id/edMaLoaiChi"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Mã Loại Chi"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
         android:id="@+id/tilTenLoaiChi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
